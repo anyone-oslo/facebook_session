@@ -1,16 +1,16 @@
 # encoding: utf-8
 
 $:.unshift File.expand_path('../lib', __FILE__)
-require 'facebook_uid/version'
+require 'facebook_session/version'
 
 Gem::Specification.new do |s|
-  s.name         = "facebook_uid"
-  s.version      = FacebookUid::VERSION
+  s.name         = "facebook_session"
+  s.version      = FacebookSession::VERSION
   s.authors      = ["Inge Jørgensen"]
   s.email        = "inge@manualdesign.no"
   s.homepage     = ""
-  s.summary      = "FacebookUid"
-  s.description  = "FacebookUid"
+  s.summary      = "FacebookSession"
+  s.description  = "FacebookSession"
 
   s.files        = `git ls-files app lib`.split("\n")
   s.platform     = Gem::Platform::RUBY
