@@ -4,7 +4,7 @@ $:.unshift File.expand_path('../lib', __FILE__)
 require 'facebook_session/version'
 
 Gem::Specification.new do |s|
-  s.name         = "FacebookSession"
+  s.name         = "facebook_session"
   s.version      = FacebookSession::VERSION
   s.authors      = ["Inge Jørgensen"]
   s.email        = "inge@manualdesign.no"

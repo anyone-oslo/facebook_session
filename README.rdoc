@@ -1,6 +1,6 @@
 = FacebookSession
 
-FacebookSession is a bare-bones Facebook session authentication plugin for
+FacebookSession is a bare bones Facebook session authentication plugin for
 Rails, intended to complement the Javascript SDK.
 
 == Installation
