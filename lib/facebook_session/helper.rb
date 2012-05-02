@@ -1,5 +1,5 @@
 module FacebookSession
-  module Controller
+  module Helper
 
     def facebook_session
       return @facebook_session if @facebook_session

@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), 'facebook_session/controller')
+require File.join(File.dirname(__FILE__), 'facebook_session/helper')
 require File.join(File.dirname(__FILE__), 'facebook_session/session')
 
 module FacebookSession
@@ -29,4 +29,5 @@ module FacebookSession
   end
 end
 
-ActionController::Base.send :include, FacebookSession::Controller
+ActionView::Base.send :include, FacebookSession::Helper
+ActionController::Base.send :include, FacebookSession::Helper
