@@ -4,13 +4,13 @@ $:.unshift File.expand_path('../lib', __FILE__)
 require 'facebook_session/version'
 
 Gem::Specification.new do |s|
-  s.name         = "facebook_session"
+  s.name         = "FacebookSession"
   s.version      = FacebookSession::VERSION
   s.authors      = ["Inge Jørgensen"]
   s.email        = "inge@manualdesign.no"
   s.homepage     = ""
-  s.summary      = "FacebookSession"
-  s.description  = "FacebookSession"
+  s.summary      = "Rails plugin for simple Facebook session authentication"
+  s.description  = "Rails plugin for simple Facebook session authentication"
 
   s.files        = `git ls-files app lib`.split("\n")
   s.platform     = Gem::Platform::RUBY
