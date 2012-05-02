@@ -1,0 +1,29 @@
+= FacebookSession
+
+FacebookSession is a bare-bones Facebook session authentication plugin for
+Rails, intended to complement the Javascript SDK.
+
+== Installation
+
+Add it to your Gemfile:
+
+ gem 'facebook_session'
+
+Then, create config/initializers/facebook_session.rb and add your API details:
+
+ FacebookSession.configure({
+   :application_id     => '12345678',
+   :application_secret => 'myapplication_secret
+ })
+
+== Usage
+
+In your controllers, helpers and views, you can now do:
+
+ if facebook_session?
+   facebook_session.user_id # => Facebook user ID
+ end
+
+== Copyright
+
+Copyright (c) 2012 Manual design. See LICENSE for details.
