@@ -24,6 +24,11 @@ In your controllers, helpers and views, you can now do:
    facebook_session.user_id # => Facebook user ID
  end
 
+You probably want to pass your application ID to the frontend layer,
+which you can find in:
+
+ FacebookSession.application_id
+
 == Copyright
 
 Copyright (c) 2012 Manual design. See LICENSE for details.
