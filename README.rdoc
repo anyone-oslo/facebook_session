@@ -29,6 +29,12 @@ which you can find in:
 
  FacebookSession.application_id
 
+FacebookSession can also parse signed requests.
+
+ if facebook_signed_request?
+   logger.info facebook_signed_request.app_data
+ end
+
 == Copyright
 
 Copyright (c) 2012 Manual design. See LICENSE for details.

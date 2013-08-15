@@ -13,5 +13,16 @@ module FacebookSession
       self.facebook_session ? true : false
     end
 
+    def facebook_signed_request
+      return @facebook_signed_request if @facebook_signed_request
+      raise 'FacebookSession not configured!' unless FacebookSession.config?
+      if facebook_signed_request = params[:signed_request]
+        @facebook_signed_request = FacebookSession::SignedRequest.parse_request(facebook_signed_request)
+      end
+    end
+
+    def facebook_signed_request?
+      self.facebook_signed_request ? true : false
+    end
   end
 end
