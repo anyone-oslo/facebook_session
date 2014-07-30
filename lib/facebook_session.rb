@@ -41,7 +41,7 @@ module FacebookSession
       decoded_payload.symbolize_keys!
 
       expected_sig = OpenSSL::HMAC.digest(
-        OpenSSL::Digest::Digest.new('sha256'),
+        OpenSSL::Digest.new('sha256'),
         FacebookSession.application_secret,
         payload
       )
