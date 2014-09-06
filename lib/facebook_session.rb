@@ -1,5 +1,6 @@
 require File.join(File.dirname(__FILE__), 'facebook_session/helper')
 require File.join(File.dirname(__FILE__), 'facebook_session/session')
+require File.join(File.dirname(__FILE__), 'facebook_session/railtie')
 require File.join(File.dirname(__FILE__), 'facebook_session/signed_request')
 
 module FacebookSession
@@ -56,5 +57,3 @@ module FacebookSession
   end
 end
 
-ActionView::Base.send :include, FacebookSession::Helper
-ActionController::Base.send :include, FacebookSession::Helper

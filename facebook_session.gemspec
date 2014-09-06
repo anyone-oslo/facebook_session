@@ -18,7 +18,5 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_path = 'lib'
 
-  # specify any dependencies here; for example:
-  #s.add_runtime_dependency "rake", ">= 0.8.7"
-  #s.add_runtime_dependency "mysql", ">= 2.8.1"
+  s.add_dependency "rails", ">= 3.0.0"
 end
