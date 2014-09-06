@@ -10,34 +10,30 @@ module FacebookSession
       @@config = nil
     end
 
-    def config
-      @@config ||= {}
-    end
-
     def config?
-      self.config[:application_id] && self.config[:application_secret] ? true : false
+      config[:application_id] && config[:application_secret] ? true : false
     end
 
     def configure(options={})
       options.each do |key, val|
-        self.config[key.to_sym] = val
+        config[key.to_sym] = val
       end
-      self.config
+      config
     end
 
     def application_id
-      if self.config[:application_id].kind_of?(Proc)
-        self.config[:application_id].call
+      if config[:application_id].kind_of?(Proc)
+        config[:application_id].call
       else
-        self.config[:application_id]
+        config[:application_id]
       end
     end
 
     def application_secret
-      if self.config[:application_secret].kind_of?(Proc)
-        self.config[:application_secret].call
+      if config[:application_secret].kind_of?(Proc)
+        config[:application_secret].call
       else
-        self.config[:application_secret]
+        config[:application_secret]
       end
     end
 
@@ -66,6 +62,11 @@ module FacebookSession
       end
     end
 
+    private
+
+    def config
+      @@config ||= {}
+    end
   end
 end
 
