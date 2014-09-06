@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version      = FacebookSession::VERSION
   s.authors      = ["Inge Jørgensen"]
   s.email        = "inge@manualdesign.no"
-  s.homepage     = "https://github.com/manualdesign/simple_session"
+  s.homepage     = "https://github.com/manualdesign/facebook_session"
   s.summary      = "Rails plugin for simple Facebook session authentication"
   s.description  = "Rails plugin for simple Facebook session authentication"
 
