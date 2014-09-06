@@ -26,11 +26,19 @@ module FacebookSession
     end
 
     def application_id
-      self.config[:application_id]
+      if self.config[:application_id].kind_of?(Proc)
+        self.config[:application_id].call
+      else
+        self.config[:application_id]
+      end
     end
 
     def application_secret
-      self.config[:application_secret]
+      if self.config[:application_secret].kind_of?(Proc)
+        self.config[:application_secret].call
+      else
+        self.config[:application_secret]
+      end
     end
 
     def base64_url_decode(string)

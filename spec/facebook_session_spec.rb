@@ -22,4 +22,40 @@ describe FacebookSession do
       it { is_expected.to eq(true) }
     end
   end
+
+  describe ".application_id" do
+    subject { FacebookSession.application_id }
+
+    context "when unconfigured" do
+      it { is_expected.to eq(nil) }
+    end
+
+    context "when configured with a string" do
+      before { FacebookSession.configure(application_id: "foo") }
+      it { is_expected.to eq("foo") }
+    end
+
+    context "when configured with a proc" do
+      before { FacebookSession.configure(application_id: -> { "foo" }) }
+      it { is_expected.to eq("foo") }
+    end
+  end
+
+  describe ".application_secret" do
+    subject { FacebookSession.application_secret }
+
+    context "when unconfigured" do
+      it { is_expected.to eq(nil) }
+    end
+
+    context "when configured with a string" do
+      before { FacebookSession.configure(application_secret: "foo") }
+      it { is_expected.to eq("foo") }
+    end
+
+    context "when configured with a proc" do
+      before { FacebookSession.configure(application_secret: -> { "foo" }) }
+      it { is_expected.to eq("foo") }
+    end
+  end
 end
