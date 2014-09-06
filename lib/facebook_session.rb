@@ -6,6 +6,10 @@ require File.join(File.dirname(__FILE__), 'facebook_session/signed_request')
 module FacebookSession
   class << self
 
+    def clear_config!
+      @@config = nil
+    end
+
     def config
       @@config ||= {}
     end
