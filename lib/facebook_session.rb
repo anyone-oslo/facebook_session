@@ -1,4 +1,7 @@
+require 'base64'
+
 require File.join(File.dirname(__FILE__), 'facebook_session/helper')
+require File.join(File.dirname(__FILE__), 'facebook_session/message_decoder')
 require File.join(File.dirname(__FILE__), 'facebook_session/session')
 require File.join(File.dirname(__FILE__), 'facebook_session/railtie')
 require File.join(File.dirname(__FILE__), 'facebook_session/signed_request')
@@ -37,29 +40,8 @@ module FacebookSession
       end
     end
 
-    def base64_url_decode(string)
-      encoded_string = string.gsub('-','+').gsub('_','/')
-      encoded_string += '=' while (encoded_string.length % 4 != 0)
-      Base64.decode64(encoded_string)
-    end
-
-    def decode_payload(string)
-      encoded_sig, payload = string.split('.')
-      sig             = base64_url_decode(encoded_sig)
-      decoded_payload = JSON.parse(base64_url_decode(payload))
-      decoded_payload.symbolize_keys!
-
-      expected_sig = OpenSSL::HMAC.digest(
-        OpenSSL::Digest.new('sha256'),
-        FacebookSession.application_secret,
-        payload
-      )
-
-      if sig == expected_sig
-        decoded_payload
-      else
-        nil
-      end
+    def message_decoder
+      FacebookSession::MessageDecoder.new(application_secret)
     end
 
     private

@@ -4,11 +4,7 @@ module FacebookSession
 
     class << self
       def parse_cookie(cookie)
-        if session_data = FacebookSession.decode_payload(cookie)
-          self.new(session_data)
-        else
-          nil
-        end
+        self.new(FacebookSession.message_decoder.decode(cookie))
       end
     end
 

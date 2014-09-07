@@ -4,11 +4,7 @@ module FacebookSession
 
     class << self
       def parse_request(request)
-        if request_data = FacebookSession.decode_payload(request)
-          self.new(request_data)
-        else
-          nil
-        end
+        self.new(FacebookSession.message_decoder.decode(request))
       end
     end
 

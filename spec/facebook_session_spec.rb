@@ -58,4 +58,10 @@ describe FacebookSession do
       it { is_expected.to eq("foo") }
     end
   end
+
+  describe ".message_decoder" do
+    before { FacebookSession.configure(application_secret: "foo") }
+    subject { FacebookSession.message_decoder }
+    it { is_expected.to be_a(FacebookSession::MessageDecoder) }
+  end
 end
