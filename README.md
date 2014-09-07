@@ -16,7 +16,7 @@ Then, create config/initializers/facebook_session.rb and add your API details:
 ```ruby
 FacebookSession.configure(
   application_id:     '12345678',
-  application_secret: 'myapplication_secret
+  application_secret: 'myapplication_secret'
 )
 ```
 
@@ -26,7 +26,7 @@ In your controllers, helpers and views, you can now do:
 
 ```ruby
 if facebook_session?
- facebook_session.user_id # => Facebook user ID
+  facebook_session.user_id # => Facebook user ID
 end
 ```
 
