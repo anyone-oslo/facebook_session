@@ -2,8 +2,6 @@
 
 module FacebookSession
   class MessageDecoder
-    class InvalidSignature < StandardError; end
-
     def initialize(secret)
       @secret = secret
     end
@@ -15,7 +13,7 @@ module FacebookSession
       if valid_digest?(payload, digest)
         parse_payload(payload)
       else
-        raise InvalidSignature
+        raise FacebookSession::InvalidSignature
       end
     end
 

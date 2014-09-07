@@ -60,8 +60,17 @@ describe FacebookSession do
   end
 
   describe ".message_decoder" do
-    before { FacebookSession.configure(application_secret: "foo") }
     subject { FacebookSession.message_decoder }
-    it { is_expected.to be_a(FacebookSession::MessageDecoder) }
+
+    context "without configuration" do
+      it "should raise an error" do
+        expect { subject }.to raise_error(FacebookSession::NotConfiguredError)
+      end
+    end
+
+    context "with configuration" do
+      before { FacebookSession.configure(application_id: "foo", application_secret: "bar") }
+      it { is_expected.to be_a(FacebookSession::MessageDecoder) }
+    end
   end
 end

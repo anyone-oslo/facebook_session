@@ -2,10 +2,8 @@ module FacebookSession
   module Helper
 
     def facebook_session
-      return @facebook_session if @facebook_session
-      raise 'FacebookSession not configured!' unless FacebookSession.config?
-      if facebook_cookie = cookies["fbsr_#{FacebookSession.application_id}"]
-        @facebook_session = FacebookSession::Session.decode(facebook_cookie)
+      if message = cookies["fbsr_#{FacebookSession.application_id}"]
+        @facebook_session ||= FacebookSession::Session.decode(message)
       end
     end
 
@@ -14,10 +12,8 @@ module FacebookSession
     end
 
     def facebook_signed_request
-      return @facebook_signed_request if @facebook_signed_request
-      raise 'FacebookSession not configured!' unless FacebookSession.config?
-      if facebook_signed_request = params[:signed_request]
-        @facebook_signed_request = FacebookSession::SignedRequest.decode(facebook_signed_request)
+      if message = params[:signed_request]
+        @facebook_signed_request ||= FacebookSession::SignedRequest.decode(message)
       end
     end
 

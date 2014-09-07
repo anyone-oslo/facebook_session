@@ -8,6 +8,9 @@ require File.join(File.dirname(__FILE__), 'facebook_session/railtie')
 require File.join(File.dirname(__FILE__), 'facebook_session/signed_request')
 
 module FacebookSession
+  class InvalidSignature < StandardError; end
+  class NotConfiguredError < StandardError; end
+
   class << self
 
     def clear_config!
@@ -42,6 +45,7 @@ module FacebookSession
     end
 
     def message_decoder
+      raise NotConfiguredError unless config?
       FacebookSession::MessageDecoder.new(application_secret)
     end
 

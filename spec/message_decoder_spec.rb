@@ -18,7 +18,7 @@ describe FacebookSession::MessageDecoder do
     context "with invalid digest" do
       let(:digest) { "1639a467ae544a4a9b4a5623fe56a2f93276087b" }
       it "should raise an error" do
-        expect { subject }.to raise_error(FacebookSession::MessageDecoder::InvalidSignature)
+        expect { subject }.to raise_error(FacebookSession::InvalidSignature)
       end
     end
   end
