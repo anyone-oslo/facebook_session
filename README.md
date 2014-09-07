@@ -1,4 +1,4 @@
-# FacebookSession [![Build Status](https://travis-ci.org/manualdesign/facebook_session.png)](https://travis-ci.org/manualdesign/facebook_session) [![Code Climate](https://codeclimate.com/github/manualdesign/facebook_session.png)](https://codeclimate.com/github/manualdesign/facebook_session) [![Code Climate](https://codeclimate.com/github/manualdesign/facebook_session/coverage.png)](https://codeclimate.com/github/manualdesign/facebook_session)
+# FacebookSession [![Build Status](https://travis-ci.org/manualdesign/facebook_session.svg?branch=master)](https://travis-ci.org/manualdesign/facebook_session) [![Code Climate](https://codeclimate.com/github/manualdesign/facebook_session/badges/gpa.svg)](https://codeclimate.com/github/manualdesign/facebook_session) [![Test Coverage](https://codeclimate.com/github/manualdesign/facebook_session/badges/coverage.svg)](https://codeclimate.com/github/manualdesign/facebook_session)
 
 FacebookSession is a bare bones Facebook session authentication plugin for
 Rails, intended to complement the Javascript SDK.
