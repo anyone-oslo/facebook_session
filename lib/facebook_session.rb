@@ -1,5 +1,6 @@
 require 'base64'
 
+require File.join(File.dirname(__FILE__), 'facebook_session/decodeable_struct')
 require File.join(File.dirname(__FILE__), 'facebook_session/helper')
 require File.join(File.dirname(__FILE__), 'facebook_session/message_decoder')
 require File.join(File.dirname(__FILE__), 'facebook_session/session')
