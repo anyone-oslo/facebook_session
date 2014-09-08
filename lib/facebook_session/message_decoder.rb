@@ -8,7 +8,7 @@ module FacebookSession
 
     def decode(string)
       encoded_digest, payload = string.split('.')
-      digest = Base64.urlsafe_decode64(encoded_digest)
+      digest = decode_base64(encoded_digest)
 
       if valid_digest?(payload, digest)
         parse_payload(payload)
@@ -19,8 +19,13 @@ module FacebookSession
 
     private
 
+    def decode_base64(str)
+      str += '=' while str.length % 4 != 0 # Pad string with =
+      Base64.urlsafe_decode64(str)
+    end
+
     def parse_payload(payload)
-      parsed_payload = JSON.parse(Base64.urlsafe_decode64(payload))
+      parsed_payload = JSON.parse(decode_base64(payload))
       parsed_payload.symbolize_keys!
       parsed_payload
     end

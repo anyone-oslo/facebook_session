@@ -4,8 +4,8 @@ describe FacebookSession::MessageDecoder do
   let(:secret)   { "topsecret" }
   let(:verifier) { FacebookSession::MessageDecoder.new(secret) }
   let(:json)     { '{"foo": "bar"}' }
-  let(:payload)  { Base64.urlsafe_encode64(json) }
-  let(:digest)   { Base64.urlsafe_encode64(OpenSSL::HMAC.digest(OpenSSL::Digest.new('sha256'), secret, payload)) }
+  let(:payload)  { Base64.urlsafe_encode64(json).gsub(/[=]+$/, '') }
+  let(:digest)   { Base64.urlsafe_encode64(OpenSSL::HMAC.digest(OpenSSL::Digest.new('sha256'), secret, payload)).gsub(/[=]+$/, '') }
   let(:message)  { "#{digest}.#{payload}" }
 
   describe "#decode" do
