@@ -5,13 +5,19 @@ Rails, intended to complement the Javascript SDK.
 
 ## Installation
 
-Add it to your Gemfile:
+Add it to your Gemfile and run `bundle install`:
 
 ```ruby
 gem 'facebook_session'
 ```
 
-Then, create config/initializers/facebook_session.rb and add your API details:
+Then run the generator to create the initializer:
+
+```
+rails g facebook_session:install
+```
+
+Or, create config/initializers/facebook_session.rb manually and add your API details:
 
 ```ruby
 FacebookSession.configure(
