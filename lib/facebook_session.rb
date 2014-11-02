@@ -1,10 +1,10 @@
 require 'base64'
 
 require File.join(File.dirname(__FILE__), 'facebook_session/decodeable_struct')
+require File.join(File.dirname(__FILE__), 'facebook_session/engine')
 require File.join(File.dirname(__FILE__), 'facebook_session/helper')
 require File.join(File.dirname(__FILE__), 'facebook_session/message_decoder')
 require File.join(File.dirname(__FILE__), 'facebook_session/session')
-require File.join(File.dirname(__FILE__), 'facebook_session/railtie')
 require File.join(File.dirname(__FILE__), 'facebook_session/signed_request')
 
 module FacebookSession
@@ -56,4 +56,3 @@ module FacebookSession
     end
   end
 end
-

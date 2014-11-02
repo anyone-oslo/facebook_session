@@ -1,7 +1,7 @@
 require 'rails'
 
 module PagesCore
-  class Railtie < ::Rails::Railtie
+  class Engine < ::Rails::Engine
     initializer :extend_rails do
       ActionView::Base.send :include, FacebookSession::Helper
       ActionController::Base.send :include, FacebookSession::Helper
