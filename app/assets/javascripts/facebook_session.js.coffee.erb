@@ -1,0 +1,54 @@
+turbolinksEventsBound = false
+facebookReady = false
+facebookAppId = '<%= FacebookSession.application_id %>'
+
+window.withFacebookAPI = (callback) ->
+  if facebookReady
+    callback()
+  else
+    interval = setInterval ->
+      if facebookReady
+        clearInterval interval
+        callback()
+    , 50
+
+$ ->
+  if facebookAppId
+    loadFacebookSDK()
+    bindTurbolinksEvents() unless turbolinksEventsBound
+  else
+    console.log 'Warning: FacebookSession not configured, skipping Facebook API'
+
+bindTurbolinksEvents = ->
+  fbRoot = null
+
+  saveFacebookRoot = ->
+    fbRoot = $('#fb-root').detach()
+
+  restoreFacebookRoot = ->
+    if $('#fb-root').length > 0
+      $('#fb-root').replaceWith fbRoot
+    else
+      $('body').append fbRoot
+
+  $(document)
+    .on('page:fetch', saveFacebookRoot)
+    .on('page:change', restoreFacebookRoot)
+    .on('page:load', ->
+      FB.XFBML.parse()
+    )
+
+  turbolinksEventsBound = true
+
+loadFacebookSDK = ->
+  window.fbAsyncInit = initializeFacebookSDK
+  $.getScript("//connect.facebook.com/en_US/sdk.js#xfbml=1")
+
+initializeFacebookSDK = ->
+  FB.init
+    appId     : facebookAppId
+    version   : 'v2.0'
+    status    : true
+    cookie    : true
+    xfbml     : true
+  facebookReady = true
